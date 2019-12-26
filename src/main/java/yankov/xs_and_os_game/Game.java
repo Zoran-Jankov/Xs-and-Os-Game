@@ -13,6 +13,6 @@ public class Game
 	
 	public Score getScore()
 	{
-		
+		return null;
 	}
 }
