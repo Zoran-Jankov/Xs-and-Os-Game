@@ -2,20 +2,20 @@ package main.java.yankov.xs_and_os_game;
 
 public class Combinations
 {
-	public Row firstRow;
-	public Row secondRow;
-	public Row thirdRow;
+	private Row firstRow;
+	private Row secondRow;
+	private Row thirdRow;
 	
-	public Row firstColumn;
-	public Row secondColumn;
-	public Row thirdColumn;
+	private Row firstColumn;
+	private Row secondColumn;
+	private Row thirdColumn;
 	
-	public Row backDiagonal;
-	public Row forwardDiagonal;
+	private Row backDiagonal;
+	private Row forwardDiagonal;
 	
 	private Row combinations[] = {firstRow, secondRow, thirdRow, 
-								 firstColumn, secondColumn, thirdColumn,
-								 backDiagonal, forwardDiagonal};
+								  firstColumn, secondColumn, thirdColumn,
+								  backDiagonal, forwardDiagonal};
 	
 	public Combinations(Board board)
 	{
