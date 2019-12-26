@@ -13,6 +13,10 @@ public class Combinations
 	public Row backDiagonal;
 	public Row forwardDiagonal;
 	
+	private Row combinations[] = {firstRow, secondRow, thirdRow, 
+								 firstColumn, secondColumn, thirdColumn,
+								 backDiagonal, forwardDiagonal};
+	
 	public Combinations(Board board)
 	{
 		firstRow = new Row(board.A1, board.B1, board.C1);
@@ -25,5 +29,10 @@ public class Combinations
 		
 		backDiagonal = new Row(board.A1, board.B2, board.C3);
 		forwardDiagonal = new Row(board.A3, board.B2, board.C1);
+	}
+	
+	public boolean hasWiningCombination()
+	{
+		return false;
 	}
 }
