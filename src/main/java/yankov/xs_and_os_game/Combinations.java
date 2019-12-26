@@ -17,6 +17,8 @@ public class Combinations
 								  firstColumn, secondColumn, thirdColumn,
 								  backDiagonal, forwardDiagonal};
 	
+	private Row winingCombination = null;
+	
 	public Combinations(Board board)
 	{
 		firstRow = new Row(board.A1, board.B1, board.C1);
@@ -33,6 +35,19 @@ public class Combinations
 	
 	public boolean hasWiningCombination()
 	{
-		return false;
+		return winingCombination != null;
+	}
+	
+	public Row getWiningCombination()
+	{
+		for(Row combination : combinations)
+		{
+			if(combination.isWiner())
+			{
+				winingCombination = combination;
+			}
+		}
+		
+		return winingCombination;
 	}
 }
