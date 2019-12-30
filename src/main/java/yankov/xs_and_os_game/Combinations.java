@@ -3,25 +3,26 @@ package main.java.yankov.xs_and_os_game;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class Combinations
 {
-	private Map<Field, Mark> firstRow;
-	private Map<Field, Mark> secondRow;
-	private Map<Field, Mark> thirdRow;
+	public static Map<Field, Mark> firstRow;
+	public static Map<Field, Mark> secondRow;
+	public static Map<Field, Mark> thirdRow;
 	
-	private Map<Field, Mark> firstColumn;
-	private Map<Field, Mark> secondColumn;
-	private Map<Field, Mark> thirdColumn;
+	public static Map<Field, Mark> firstColumn;
+	public static Map<Field, Mark> secondColumn;
+	public static Map<Field, Mark> thirdColumn;
 	
-	private Map<Field, Mark> backDiagonal;
-	private Map<Field, Mark> forwardDiagonal;
+	public static Map<Field, Mark> backDiagonal;
+	public static Map<Field, Mark> forwardDiagonal;
 	
-	private List<Map<Field, Mark>> combinations = Arrays.asList(firstRow, secondRow, thirdRow, 
+	private static List<Map<Field, Mark>> combinations = Arrays.asList(firstRow, secondRow, thirdRow, 
 																firstColumn, secondColumn, thirdColumn,
 																backDiagonal, forwardDiagonal);
 	
-	private Map<Field, Mark> winingCombination = null;
+	private static Map<Field, Mark> winingCombination = null;
 	
 	public Combinations(Board board)
 	{
@@ -58,16 +59,38 @@ public class Combinations
 								 Field.C1, board.C1);
 	}
 	
-	public boolean hasWiningCombination()
+	public static boolean isFilled(Map<Field, Mark> combination)
+	{
+		for(Entry<Field, Mark> field : combination.entrySet())
+		{
+			if(!Mark.isEmpty(field.getValue()))
+				return false;
+		}
+		
+		return true;
+	}
+	
+	public static boolean isWiner(Map<Field, Mark> combination, Mark playerMark)
+	{
+		for(Entry<Field, Mark> field : combination.entrySet())
+		{
+			if(field.getValue() != playerMark)
+				return false;
+		}
+		
+		return true;
+	}
+	
+	public static boolean hasWiningCombination()
 	{
 		return winingCombination != null;
 	}
 	
-	public Map<Field, Mark> getWiningCombination()
+	public Map<Field, Mark> getWiningCombination(Mark playerMark)
 	{
 		for(Map<Field, Mark> combination : combinations)
 		{
-			if(combination.isWiner())
+			if(isWiner(combination, playerMark))
 			{
 				winingCombination = combination;
 			}

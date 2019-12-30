@@ -6,9 +6,9 @@ public enum Mark
 	X,
 	O;
 	
-	public static boolean isEmpty(Mark mark)
+	public static boolean isEmpty(Mark field)
 	{
-		switch(mark)
+		switch(field)
 		{
 			case EMPTY:
 				return true;
