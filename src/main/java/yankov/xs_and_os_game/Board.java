@@ -11,6 +11,4 @@ public class Board
 	public Mark C1 = Mark.EMPTY;
 	public Mark C2 = Mark.EMPTY;
 	public Mark C3 = Mark.EMPTY;
-	
-	
 }
